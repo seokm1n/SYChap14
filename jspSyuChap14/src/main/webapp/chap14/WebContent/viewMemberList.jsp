@@ -23,9 +23,8 @@ MEMBER 테이블의 내용
 	ResultSet rs = null;
 	
 	try {
-		String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl" +
-						"useUnicode=true&characterEncoding=utf8";
-		String dbUser = "jspexam";
+		String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String dbUser = "c##jspexam";
 		String dbPass = "jsppw";
 		
 		String query = "select * from MEMBER order by MEMBERID";
