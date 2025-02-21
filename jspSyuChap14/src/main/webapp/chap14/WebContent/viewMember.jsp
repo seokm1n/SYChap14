@@ -11,7 +11,7 @@ String memberID = request.getParameter("memberID");
 <title>회원 정보</title>
 </head>
 <body>
-	<%
+<%
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 
 	Connection conn = null;
@@ -27,26 +27,26 @@ String memberID = request.getParameter("memberID");
 
 		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 		stmt = conn.createStatement();
+		
 		rs = stmt.executeQuery(query);
-
 		if (rs.next()) {
 	%>
 	<table border="1">
 		<tr>
 			<td>아이디</td>
-			<td><%=memberID%></td>
+			<td><%= memberID %></td>
 		</tr>
 		<tr>
 			<td>암호</td>
-			<td><%=rs.getString("PASSWORD") %></td>
+			<td><%= rs.getString("PASSWORD") %></td>
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td><%=rs.getString("NAME") %></td>
+			<td><%= rs.getString("NAME") %></td>
 		</tr>
 		<tr>
 			<td>이메일</td>
-			<td><%=rs.getString("EMAIL") %></td>
+			<td><%= rs.getString("EMAIL") %></td>
 		</tr>
 	</table>
 	<%
@@ -61,9 +61,9 @@ String memberID = request.getParameter("memberID");
 	<%= ex.getMessage() %>
 	<%
 		} finally {
-			if(rs != null) try { rs.close();} catch(SQLException ex){}
-			if(stmt != null) try { stmt.close();} catch(SQLException ex){}
-			if(conn != null) try { conn.close();} catch(SQLException ex){}
+			if (rs != null) try { rs.close();} catch(SQLException ex) {}
+			if (stmt != null) try { stmt.close();} catch(SQLException ex) {}
+			if (conn != null) try { conn.close();} catch(SQLException ex) {}
 		}
 		%>
 </body>
